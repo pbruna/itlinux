@@ -1,0 +1,25 @@
+<div class="pki" style="float: left">
+  <%= jqgrid("Oportunidades", "oportunidades", "/pki/opportunities",
+    [
+      { :field => "id", :label => "id", :hidden => true},
+      { :field => "name", :label => "Oportunidad", :width => 200 },
+      { :field => "account_name", :label => "Cliente", :width => 200 },
+      { :field => "assigned_user_name", :label => "Ejecutivo", :width => 100 },
+      { :field => "cost", :label => "Costo", :width => 100, :sortable => true,
+        :formatter => "currency", :formatoptions => {:decimalPlaces => 0, :prefix => "$ "}},
+      { :field => "amount", :label => "Margen", :width => 100, :sortable => true,
+        :formatter => "currency", :formatoptions => {:decimalPlaces => 0, :prefix => "$ "}},
+      { :field => "age", :label => "Antiguedad", :width => 100 },
+      { :field => "sale_stage", :label => "Estado", :width => 200 }
+    ],
+    {:height => 200 }
+  )
+%>
+<%= hidden_field_tag(:opp, "@opportunity") %>
+</div>
+<div>
+  <p>Margen: <%= number_to_currency(@margen, :unit => "$", :delimiter => ".", :precision => 0) %> </p>
+  <p>Costo: <%= number_to_currency(@costo, :unit => "$", :delimiter => ".", :precision => 0) %> </p>
+  <p>Comisión: <%= number_to_currency(@comisiones, :unit => "$", :delimiter => ".", :precision => 0) %> </p>
+  <img src="<%=GoogleChart.pie_3d_440x200('Margen'=>@margen,'Costo'=>@costo,'Comisiones'=>@comisiones).to_url%>" />
+</div>

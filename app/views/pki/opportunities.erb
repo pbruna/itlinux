@@ -1,0 +1,9 @@
+<%= jqgrid_stylesheets %>
+<%= jqgrid_javascripts %>
+<%= jqgrid("Football Players", "td", "/pki",
+	[
+		{ :field => "name", :label => "Pseudo" },
+		{ :field => "account_name", :label => "Firstname" },
+		{ :field => "assigned_user_name", :label => "Lastname" }
+	]
+) %>

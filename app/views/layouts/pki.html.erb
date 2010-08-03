@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Indicadores IT Linux</title>
+  <%= stylesheet_link_tag "itlinux", :media => "all" %>
+  <%= javascript_include_tag :defaults %>
+  <%= jqgrid_stylesheets %>
+  <%= jqgrid_javascripts %>
+</head>
+  <body id="store">
+    <div id="banner">
+      Aqui va el Banner
+    </div>
+
+    <div id="main">
+      <% if flash[:notice] -%>
+        <div id="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <div id="dashboard">
+        <%= yield :layout %>
+      </div>
+    </div>
+  </body>
+</html>
